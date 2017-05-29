@@ -1,0 +1,3 @@
+1 - BAIXA O XAMPP -> https://www.apachefriends.org/download.html
+2 - ENTRA NO PHPMYADMIN E IMPORTA O BANCO -> ARQUIVO bellsprout.sql
+3 - LOGIN E CADASTRO DE NOVO USÁRIO ESTÃO FUNCIONANDO, FALTA SESSION AINDA
