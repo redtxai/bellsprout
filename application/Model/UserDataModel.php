@@ -6,6 +6,7 @@
 		private $address;
 		private $phone;
 		private $idUser;
+
 		private $isAdmin = false;
 
 		public function __construct() {}
