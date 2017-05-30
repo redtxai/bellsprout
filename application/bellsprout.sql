@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 29-Maio-2017 às 18:55
+-- Generation Time: 30-Maio-2017 às 02:49
 -- Versão do servidor: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -41,10 +41,28 @@ CREATE TABLE `basket` (
 CREATE TABLE `item` (
   `id_item` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
-  `unit_name` varchar(50) NOT NULL,
+  `unit_name` varchar(50) DEFAULT NULL,
   `unit_weight` int(11) NOT NULL,
   `item_group` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `item`
+--
+
+INSERT INTO `item` (`id_item`, `name`, `unit_name`, `unit_weight`, `item_group`) VALUES
+(1, 'Queijo colonial', 'Fatiado', 300, 'Queijos'),
+(2, 'Tofu', 'Inteiro', 300, 'Queijos'),
+(3, 'Alface', '1 Pé', 250, 'Hortaliças'),
+(4, 'Rúcula', '1 Maço', 300, 'Hortaliças'),
+(5, 'Couve', '1 Maço', 300, 'Hortaliças'),
+(6, 'Couve-flor', '1 Cabeça', 300, 'Hortaliças'),
+(7, 'Brócolis', '1 Cabeça', 300, 'Hortaliças'),
+(8, 'Espinafre', '1 Maço', 400, 'Hortaliças'),
+(9, 'Repolho', '1 Cabeça', 1000, 'Hortaliças'),
+(10, 'Tomate', '', 500, 'Hortaliças'),
+(11, 'Cebola', '', 500, 'Hortaliças'),
+(12, 'Alho', '1 Cabeça', 100, 'Hortaliças');
 
 -- --------------------------------------------------------
 
@@ -153,7 +171,7 @@ ALTER TABLE `basket`
 -- AUTO_INCREMENT for table `item`
 --
 ALTER TABLE `item`
-  MODIFY `id_item` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_item` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `rel_basket_item`
 --
