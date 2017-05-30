@@ -1,6 +1,7 @@
 <?php
 	include("View/RequestView.php");
 	include("Data/RequestData.php");
+	include("Model/Basket.php");
 	include("Model/Item.php");
 
 	class RequestController {
@@ -13,12 +14,12 @@
 		}
 		
 		public function getBasketSelection() {
+			$arratBasket = $this->RequestData->getAllBasket();
 			$arrayItems = $this->RequestData->getAllItems();
-			return $this->RequestView->getBasketSelection($arrayItems);
-		}
-		
-		public function makeRequest() {
-			return "ok";
+
+			$returnContent = $this->RequestView->getBasketSelection($arratBasket);
+			$returnContent .= $this->RequestView->getItemsSelection($arrayItems);
+			return $returnContent;
 		}
 	}
 ?>

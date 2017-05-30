@@ -1,0 +1,39 @@
+<div class="item-selection">
+	<p><button class="item-previous-button">Anterior</button></p>
+	{ITEMS}
+	<p><button class="item-next-button">Próximo</button></p>
+</div>
+
+
+
+<script>
+$(function(){
+	$(".item-previous-button").click(function() {
+		$(".basket-selection").show()
+		$(".item-selection").hide()
+	})
+	$(".item-next-button").click(function() {
+		$(".basket-selection").show()
+		$(".item-selection").hide()
+
+		var basket = $("input[name=basket]:checked").val()
+
+		var food_restriction = $('.food_restriction').val()
+
+		var food = $('input[name="food"]:checked').val()
+		$.post("index.php?obj=Request&mth=makeRequest", {
+			basket: basket,
+			food_restriction: food_restriction,
+			food: food
+		})
+		.done(function(data) {
+			alert(data)
+		})
+		.fail(function() {
+			alert( "error" )
+		})
+	})
+	
+	$(".item-selection").hide()
+});
+</script>
