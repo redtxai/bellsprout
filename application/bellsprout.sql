@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 30-Maio-2017 às 02:49
+-- Generation Time: 30-Maio-2017 às 04:31
 -- Versão do servidor: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -31,6 +31,15 @@ CREATE TABLE `basket` (
   `name` varchar(50) NOT NULL,
   `value` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `basket`
+--
+
+INSERT INTO `basket` (`id_basket`, `name`, `value`) VALUES
+(1, 'Sementinha', 25),
+(2, 'Broto', 32),
+(3, 'Arbusto', 40);
 
 -- --------------------------------------------------------
 
@@ -76,6 +85,27 @@ CREATE TABLE `rel_basket_item` (
   `id_basket` int(11) NOT NULL,
   `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `rel_basket_item`
+--
+
+INSERT INTO `rel_basket_item` (`id_rel`, `item_group`, `id_basket`, `quantity`) VALUES
+(1, 'Pão', 1, 1),
+(2, 'Hortaliça', 1, 2),
+(3, 'Raiz', 1, 2),
+(4, 'Frutas', 1, 4),
+(5, 'Outros/Queijos', 1, 1),
+(6, 'Pão', 2, 2),
+(7, 'Hortaliças', 2, 3),
+(8, 'Raiz', 2, 5),
+(9, 'Frutas', 2, 8),
+(10, 'Outros/Queijos', 2, 2),
+(11, 'Pão', 3, 3),
+(12, 'Hortaliças', 3, 5),
+(13, 'Raiz', 3, 7),
+(14, 'Frutas', 3, 10),
+(15, 'Outros/Queijos', 3, 3);
 
 -- --------------------------------------------------------
 
@@ -166,7 +196,7 @@ ALTER TABLE `user_data`
 -- AUTO_INCREMENT for table `basket`
 --
 ALTER TABLE `basket`
-  MODIFY `id_basket` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_basket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `item`
 --
@@ -176,7 +206,7 @@ ALTER TABLE `item`
 -- AUTO_INCREMENT for table `rel_basket_item`
 --
 ALTER TABLE `rel_basket_item`
-  MODIFY `id_rel` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_rel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `user`
 --
