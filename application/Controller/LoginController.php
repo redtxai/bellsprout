@@ -1,4 +1,6 @@
 <?php
+	include("View/LoginView.php");
+	include("Data/LoginData.php");
 	include("Model/UserDataModel.php");
 
 	class LoginController {

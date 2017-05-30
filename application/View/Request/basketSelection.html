@@ -1,0 +1,60 @@
+<div class="basket-selection">
+	<p>Escolha uma cesta:</p>
+	<p><input type="radio" name="basket" value="sementinha">Sementinha</p>
+	<p><input type="radio" name="basket" value="broto">Broto</p>
+	<p><input type="radio" name="basket" value="arbusto">Arbusto</p>
+	<p><input type="checkbox" name="suprise_basket" value="surprise"><strong>Surpresa</strong></p>
+	<p>Restrição alimentar:</p>
+	<p>
+		<select class="food_restriction" multiple>
+			<option value="gluten">Alimentos sem glúten</option>
+			<option value="lactose">Alimentos sem lactose</option>
+			<option value="vegano">Alimentos vegano</option>
+		</select>
+	</p>
+	<p><button class="basket-next-button">Próximo</button></p>
+</div>
+
+<div class="item-selection">
+	<p><button class="item-previous-button">Anterior</button></p>
+	{ITEMS}
+	<p><button class="item-next-button">Próximo</button></p>
+</div>
+
+
+
+<script>
+$(function(){
+	$(".basket-next-button").click(function() {
+		$(".basket-selection").hide()
+		$(".item-selection").show()
+	})
+	$(".item-previous-button").click(function() {
+		$(".basket-selection").show()
+		$(".item-selection").hide()
+	})
+	$(".item-next-button").click(function() {
+		$(".basket-selection").show()
+		$(".item-selection").hide()
+
+		var basket = $("input[name=basket]:checked").val()
+
+		var food_restriction = $('.food_restriction').val()
+
+		var food = $('input[name="food"]:checked').val()
+		$.post("index.php?obj=Request&mth=makeRequest", {
+			basket: basket,
+			food_restriction: food_restriction,
+			food: food
+		})
+		.done(function(data) {
+			alert(data)
+		})
+		.fail(function() {
+			alert( "error" )
+		})
+	})
+	
+	$(".item-selection").hide()
+});
+</script>
