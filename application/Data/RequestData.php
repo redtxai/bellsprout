@@ -46,6 +46,16 @@
 					$item->setUnitName($row['unit_name']);
 					$item->setUnitWeight($row['unit_weight']);
 					$item->setItemGroup($row['item_group']);
+					
+					$idItem = $item->getIdItem();
+					$foodRestrictionArray = array();
+					$sql_2 = "SELECT * FROM rel_item_food_restriction WHERE id_item = $idItem;";
+					$rs = $this->conn->query($sql_2);
+					foreach($rs as $rw) {
+						array_push($foodRestrictionArray, $rw['food_restriction']);
+					}
+					$item->setFoodRestrictionArray($foodRestrictionArray);
+					
 					array_push($arrayItems, $item);
 				}
 				
@@ -55,5 +65,6 @@
 			}
 			return $arrayItems;
 		}
+
 	}
 ?>

@@ -14,10 +14,76 @@
 </div>
 
 <script>
+var basketRules = [];
+var basketRulesCount = [];
 $(function(){
-	$(".basket-next-button").click(function() {
-		$(".basket-selection").hide()
-		$(".item-selection").show()
+	var change = false;
+	$('input[type="radio"][name="basket"]').click(function () {
+		change = true;
 	})
+
+	$(".basket-next-button").click(function() {
+		if (!$('input[type="radio"][name=basket]:checked').val() ) {
+			alert('Você não selecionou uma cesta!')
+		} else {
+			$(".basket-selection").hide()
+			
+			if ($('.food_restriction').val()) {
+				checkFoodRestrictions($('.food_restriction').val())
+			}
+			if (change) {
+				applyBasketRules($('input[id="basket"][name="' + $('input[name=basket]:checked').val() + '"]').val())
+			}
+			$(".item-selection").show()
+		}
+	})
+
+	function checkFoodRestrictions(foodRestriction) {
+		$("fieldset input[id='restriction']").each(function () {
+			let parent = $(this).parent()
+			let value = $(this).val()
+			let name = $(this).attr('name')
+			$(foodRestriction).each(function() {
+				if (this == 'vegano') {
+					if (value.indexOf(this) == -1) {
+						$(parent).hide()
+					}
+				} else {
+					if (value.indexOf(this) != -1) {
+						$(parent).hide()
+					}
+				}
+			})
+		})
+	}
+	
+	function applyBasketRules(rules) {
+		change = false;
+		var splitRules = rules.split('-')
+		for (let i = 0; i < splitRules.length-1 ; i++) {
+			var rule = splitRules[i].split('_')
+			if (rule[0].indexOf("/") != -1) {
+				var ruleAux = rule[0].split('/')
+				$("fieldset legend").each(function () {
+					if ($(this).text().indexOf(ruleAux[0]) != -1) {
+						$(this).text(ruleAux[0] + '(' + rule[1] + ')');
+					}
+					if ($(this).text().indexOf(ruleAux[1]) != -1) {
+						$(this).text(ruleAux[1] + '(' + rule[1] + ')');
+					}
+				})
+				basketRules[ruleAux[0]] = parseInt(rule[1])
+				basketRules[ruleAux[1]] = parseInt(rule[1])
+			} else {
+				$("fieldset legend").each(function () {
+					if ($(this).text().indexOf(rule[0]) != -1) {
+						$(this).text(rule[0] + '(' + rule[1] + ')');
+					}
+				})
+				
+				basketRules[rule[0]] = parseInt(rule[1])
+			}
+		}
+	}
 });
 </script>

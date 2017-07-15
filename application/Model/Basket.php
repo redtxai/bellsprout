@@ -8,7 +8,12 @@
 		public function getRadioButton() {
 			$value = $this->getIdBasket();
 			$name = $this->getName();
-			return "<input type='radio' name='basket' value='$value'>$name";
+			$rules = "<input type='hidden' id='basket' name='$value' value='";
+			foreach($this->itemGroupArray as $group => $quantity) {
+				$rules .= $group . "_" . $quantity . "-";
+			}
+			$rules .= "'/>";
+			return $rules . "<input type='radio' name='basket' value='$value'>$name";
 		}
 
 		public function getIdBasket(){

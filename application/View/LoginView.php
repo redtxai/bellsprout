@@ -9,7 +9,7 @@
 		public function logged($UserData) {
 			$this->fileContent = file_get_contents("Login/login.html", FILE_USE_INCLUDE_PATH);
 			$this->setUserData($UserData);
-			if ($UserData->isAdmin()){
+			if ($UserData->isAdmin()) {
 				$this->fileContent = str_replace("{FORM_NEW_USER}", $this->getFormNewUser(), $this->fileContent);
 			} else {
 				$this->fileContent = str_replace("{FORM_NEW_USER}", "", $this->fileContent);
