@@ -46,6 +46,7 @@
 					$item->setUnitName($row['unit_name']);
 					$item->setUnitWeight($row['unit_weight']);
 					$item->setItemGroup($row['item_group']);
+					$item->setQuantity($row['quantity']);
 					
 					$idItem = $item->getIdItem();
 					$foodRestrictionArray = array();

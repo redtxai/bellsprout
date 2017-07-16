@@ -1,4 +1,6 @@
 <?php
+	include("View/ItemView.php");
+
 	class LoginView {
 		private $handle;
 		private $fileContent;
@@ -11,6 +13,8 @@
 			$this->setUserData($UserData);
 			if ($UserData->isAdmin()) {
 				$this->fileContent = str_replace("{FORM_NEW_USER}", $this->getFormNewUser(), $this->fileContent);
+				$ItemView = new ItemView();
+				$this->fileContent = str_replace("{FORM_NEW_ITEM}", $ItemView->getFormNewItem(), $this->fileContent);
 			} else {
 				$this->fileContent = str_replace("{FORM_NEW_USER}", "", $this->fileContent);
 			}

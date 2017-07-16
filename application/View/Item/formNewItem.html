@@ -1,0 +1,57 @@
+<section class="register-item">
+	<fieldset>
+		<legend>Cadastro de Novo Item</legend>
+		<p><input type="text" name="itemName" placeholder="Nome do item"></p>
+		<p><input type="text" name="unitName" placeholder="Nome da unidade"></p>
+		<p><input type="text" name="unitWeight" placeholder="Peso da unidade"></p>
+		<p>Grupo:</p>
+		<p>
+			<select name="itemGroup">
+				<option value="Outros">Outros</option>
+				<option value="Queijos">Queijos</option>
+				<option value="Pães">Pães</option>
+				<option value="Hortaliças">Hortaliças</option>
+				<option value="Raízes">Raízes</option>
+				<option value="Frutas">Frutas</option>
+			</select>
+		</p>
+		<p>Restrição alimentar(se houver):</p>
+		<p>
+			<select name="foodRestriction" multiple>
+				<option value="gluten">Contém glúten</option>
+				<option value="lactose">Contém lactose</option>
+				<option value="vegano">Alimento vegano</option>
+			</select>
+		</p>
+		<p><input type="text" name="quantity" placeholder="Quantidade em estoque"></p>
+		<p><button class="register-item-button">Cadastrar</button></p>
+		<p class="register-item-message"></p>
+	</fieldset>
+</section>
+
+<script>
+$(function() {
+	$(".register-item-button").click(function() {
+		var name = $("[name='itemName']").val()
+		var unitName = $("[name='unitName']").val()
+		var unitWeight = $("[name='unitWeight']").val()
+		var itemGroup = $("[name='itemGroup']").val()
+		var foodRestriction = $("[name='foodRestriction']").val() 
+		var quantity = $("[name='quantity']").val()
+		$.post("index.php?obj=Item&mth=register", { 
+			name: name,
+			unitName: unitName,
+			unitWeight: unitWeight,
+			itemGroup: itemGroup,
+			foodRestriction: foodRestriction,
+			quantity: quantity
+		})
+		.done(function(data) {
+			$(".register-item-message").html(data)
+		})
+		.fail(function() {
+			alert( "error" )
+		})
+	})
+});
+</script>
