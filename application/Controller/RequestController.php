@@ -24,5 +24,9 @@
 			$returnContent .= $this->RequestView->getItemsSelection($arrayItems);
 			return $returnContent;
 		}
+
+		public function confirmationRequest() {
+			
+		}
 	}
 ?>

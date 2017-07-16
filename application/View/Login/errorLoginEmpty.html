@@ -1,4 +1,16 @@
 
 <section class="container">
-	error login
+	<fieldset>
+		<p>Erro ao efetuar login</p>
+		<p><button class="error-login-button">Voltar</button></p>
+	</fieldset>
 </section>
+
+<script>
+$(function(){
+	$(".error-login-button").click(function() {
+		$(".login-request-answer").hide()
+		$(".login").fadeIn("slow")
+	})
+});
+</script>

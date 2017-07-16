@@ -6,8 +6,16 @@
 		<p>CPF:&nbsp;{CPF}</p>
 		<p>Endereço:&nbsp;{ADDRESS}</p>
 		<p>Telefone:&nbsp;{PHONE}</p>
+		<p><button class="logout-button">Sair</button></p>
 	</fieldset>
 </section>
-
+<script>
+$(function(){
+	$(".logout-button").click(function() {
+		$(".login-request-answer").hide()
+		$(".login").fadeIn("slow")
+	})
+});
+</script>
 {FORM_NEW_USER}
 {FORM_NEW_ITEM}

@@ -11,7 +11,7 @@
 <script>
 $(function(){
 	$(".item-previous-button").click(function() {
-		$(".basket-selection").show()
+		$(".basket-selection").fadeIn("slow")
 		$("fieldset input[id='restriction']").each(function () {
 			$(this).parent().show()
 			$('input[type="checkbox"][id="' + $(this).attr('name') + '"]').prop('checked', false);
@@ -27,7 +27,7 @@ $(function(){
 			var basket = $("input[name=basket]:checked").val()
 			var food = $('input[name="food"]:checked').val()
 			var food_restriction = $('.food_restriction').val()
-			$.post("index.php?obj=Request&mth=makeRequest", {
+			$.post("index.php?obj=Request&mth=confirmationRequest", {
 				basket: basket,
 				food_restriction: food_restriction,
 				food: food
