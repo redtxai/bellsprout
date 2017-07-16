@@ -1,6 +1,4 @@
 <?php
-	include("View/ItemView.php");
-
 	class RequestView {
 
 		public function __construct() {}

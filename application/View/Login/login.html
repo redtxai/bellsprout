@@ -12,8 +12,11 @@
 <script>
 $(function(){
 	$(".logout-button").click(function() {
-		$(".login-request-answer").hide()
-		$(".login").fadeIn("slow")
+		$.post("index.php?obj=Login&mth=logout")
+		.done(function(data) {
+			$(".login-request-answer").hide()
+			$(".login").fadeIn("slow")
+		})
 	})
 });
 </script>

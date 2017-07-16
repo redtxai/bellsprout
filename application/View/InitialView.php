@@ -11,6 +11,10 @@
 			return $this->fileContent;
 		}
 		
+		public function setLogin($login) {
+			$this->fileContent = str_replace("{LOGIN}", $login, $this->fileContent);
+		}
+		
 		public function setBasketSelection($basketSelection) {
 			$this->fileContent = str_replace("{BASKET_SELECTION}", $basketSelection, $this->fileContent);
 		}

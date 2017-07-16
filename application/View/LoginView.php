@@ -1,6 +1,4 @@
 <?php
-	include("View/ItemView.php");
-
 	class LoginView {
 		private $handle;
 		private $fileContent;
@@ -18,6 +16,10 @@
 			} else {
 				$this->fileContent = str_replace("{FORM_NEW_USER}", "", $this->fileContent);
 			}
+		}
+
+		public function notLogged() {
+			$this->fileContent = file_get_contents("Login/notLogged.html", FILE_USE_INCLUDE_PATH);
 		}
 
 		public function get() {

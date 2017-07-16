@@ -1,4 +1,5 @@
 <?php
+	include("View/ItemView.php");
 	include("View/LoginView.php");
 	include("Data/LoginData.php");
 	include("Model/UserDataModel.php");
@@ -7,32 +8,50 @@
 		private $LoginView;
 		private $LoginData;
 
-		public function __construct() {
+		public function __construct($data = null) {
 			$this->LoginView = new LoginView();
 			if(!empty($_POST['login']) && !empty($_POST['password'])) {
-				$tryLogin = $_POST['password'];
-				$tryPassword = md5($_POST['password']);
-				$this->LoginData = new LoginData();
-				if ($this->LoginData->isConnected()) {
-					$this->LoginData->tryLogin($tryLogin, $tryPassword);
-					$idUser = $this->LoginData->getIdUser();
-					if ($idUser == 0) {
-						$this->LoginView->errorloginWrong();
-					} else {
-						$result = $this->LoginData->loadUserDataModel();
-						$UserDataModel = new UserDataModel();
-						if ($this->LoginData->getPermission() == 1) {
-							$UserDataModel->setAdmin();
-						}
-						$UserDataModel->setUserModelByDatabaseResult($result);
-						$UserDataModel->setIdUser($idUser);
-						$this->LoginView->logged($UserDataModel);
-					}
-				}
-				$this->LoginData->destroy();
+				$this->tryLogin($_POST['password'], md5($_POST['password']));
+				$this->loginFeature = $this->LoginView->get();
+			} elseif($data != null && (!empty($data->user) && !empty($data->password))) {
+				$this->tryLogin($data->user, $data->password);
+				$this->loginFeature = $this->LoginView->get();
+			} elseif(isset($_POST) || empty($_POST)) {
+				$this->LoginView->notLogged();
 			} else {
 				$this->LoginView->errorLoginEmpty();
 			}
+		}
+
+		private function tryLogin($tryLogin, $tryPassword) {
+			$this->LoginData = new LoginData();
+			if ($this->LoginData->isConnected()) {
+				$this->LoginData->tryLogin($tryLogin, $tryPassword);
+				$idUser = $this->LoginData->getIdUser();
+				if ($idUser == 0) {
+					$this->LoginView->errorloginWrong();
+				} else {
+					$result = $this->LoginData->loadUserDataModel();
+					$UserDataModel = new UserDataModel();
+					if ($this->LoginData->getPermission() == 1) {
+						$UserDataModel->setAdmin();
+					}
+					$UserDataModel->setUserModelByDatabaseResult($result);
+					$UserDataModel->setIdUser($idUser);
+					$this->LoginView->logged($UserDataModel);
+					
+					$data = Session::getInstance();
+					$data->user = $tryLogin;
+					$data->password = $tryPassword;
+				}
+			}
+			$this->LoginData->destroy();
+		}
+
+		public function logout() {
+			echo "ok";
+			$data = Session::getInstance();
+			$data->destroy();
 		}
 		
 		public function show() {

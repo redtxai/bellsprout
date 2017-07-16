@@ -7,12 +7,12 @@
 			$mth = $_GET['mth'];
 		}
 	}
+	include("Session.php");
 	include("Data/Data.php");
-	
+
 	if (file_exists("Controller/" . $obj . "Controller.php")) {
 		include("Controller/" . $obj . "Controller.php");
 	}
-
 	$obj .= "Controller";
 	$actionClass = new $obj;
 	echo $actionClass->$mth();
