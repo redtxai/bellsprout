@@ -1,16 +1,29 @@
 <?php
 	include("Data/ItemData.php");
+	include("View/ItemView.php");
 	include("Model/Item.php");
 
 	class ItemController {
 		private $ItemData;
+		private $ItemView;
 		private $Item;
 
 		public function __construct() {
+			$this->ItemView = new ItemView();
 			$this->ItemData = new ItemData();
-			$this->fillItemModel();
 		}
-		
+
+		public function register() {
+			$this->fillItemModel();
+			$this->ItemData->registerNewItem($this->Item);
+			return $this->ItemData->get();
+		}
+
+		public function refreshItems() {
+			$arrayItems = $this->ItemData->getAllItems();
+			return $this->ItemView->getItemsContent($arrayItems);
+		}
+
 		private function fillItemModel() {
 			$this->Item = new Item();
 			$this->Item->setName($_POST['name']);
@@ -23,11 +36,6 @@
 				$this->Item->setFoodRestrictionArray(Array());
 			}
 			$this->Item->setQuantity($_POST['quantity']);
-		}
-		
-		public function register() {
-			$this->ItemData->registerNewItem($this->Item);
-			return $this->ItemData->get();
 		}
 	}
 ?>

@@ -48,6 +48,10 @@ $(function() {
 		})
 		.done(function(data) {
 			$(".register-item-message").html(data)
+			$.post("index.php?obj=Item&mth=refreshItems")
+			.done(function(data) {
+				$(".item-list").html(data)
+			})
 		})
 		.fail(function() {
 			alert( "error" )
