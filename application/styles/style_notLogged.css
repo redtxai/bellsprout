@@ -1,0 +1,18 @@
+body section.login p.nome {
+	border-radius: 12px;
+	padding-left: 15px;
+	background: #50A162; /* For browsers that do not support gradients */
+	background: -webkit-linear-gradient(left,  rgba(0,0,0,0) , #50A162,  rgba(0,0,0,0) 60%); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(right,  rgba(0,0,0,0) , #50A162,  rgba(0,0,0,0) 60%); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(right,  rgba(0,0,0,0) , #50A162,  rgba(0,0,0,0) 60% ); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to right,  rgba(0,0,0,0) , #50A162,  rgba(0,0,0,0) 60%); /* Standard syntax */
+}
+body section.login p.senha {
+	border-radius: 6px;
+		padding-left: 15px;
+	background: #50A162; /* For browsers that do not support gradients */
+	background: -webkit-linear-gradient(left,  rgba(0,0,0,0) , #50A162,  rgba(0,0,0,0) 60%); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(right,  rgba(0,0,0,0) , #50A162,  rgba(0,0,0,0) 60%); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(right,  rgba(0,0,0,0) , #50A162,  rgba(0,0,0,0) 60% ); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to right,  rgba(0,0,0,0) , #50A162,  rgba(0,0,0,0) 60%); /* Standard syntax */
+}

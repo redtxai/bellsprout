@@ -1,17 +1,32 @@
 <html>
-	</head>
+	<head>
 		<meta charset="UTF-8">
 		<script src="View/js/jquery-3.2.1.min.js"></script>
-	<head>
+		<link rel="stylesheet" type="text/css" href="styles\style_general.css">
+	</head>
 	<body>
+	 
+	 <ul>
+		<li onclick="goHome()"><a href="#home">Inicial</a></li>
+		<li><a href="#news">Notícias</a></li>
+		<li class="dropdown">
+			<a href="javascript:void(0)" class="dropbtn">Selecionar</a>
+				<div class="dropdown-content">
+					<a href="#">Link 1</a>
+					<a href="#">Link 2</a>
+					<a href="#">Link 3</a>
+				</div>
+		</li>
+		<li style="float:right" onclick="goUser()"><a href="#user">Usuário</a></li>
+		</ul>
+	
 		<section class="container">
 			{LOGIN}
-			<hr/>
-			<section class="basket-sell">
-				<fieldset>
+		</section>
+		
+		<section class="container">
 				{BASKET_SELECTION}
-				</fieldset>
-			</section>
+				
 		</section>
 	</body>
 </html>
@@ -25,7 +40,6 @@
 			.done(function(data) {
 				$(".login").hide()
 				$(".login-request-answer").html(data)
-				$(".login-request-answer").fadeIn("slow")
 				$(".item-next-button").prop('disabled', false);
 			})
 			.fail(function() {
@@ -33,4 +47,18 @@
 			})
 		})
 	});
+</script>
+<script>
+	function goHome() {
+	   $(".basket-selection").fadeIn("slow");
+	   $(".login").hide("fast");
+	   $(".item-selection").hide("fast");
+	   $(".login-request-answer").hide("fast");
+	}
+	function goUser() {
+	   $(".login-request-answer").fadeIn("slow");
+	   $(".login").fadeIn("slow");
+	   $(".basket-selection").hide("fast");
+	   $(".item-selection").hide("fast");
+	}
 </script>

@@ -1,0 +1,118 @@
+/*Fundo*/
+body {
+		border-top: 50px solid #50A162;
+		background-color: #50A162;
+		border-right: 10px solid #50A162;
+	}
+/*Caixa de login*/
+body section.login {
+		border-radius: 4px;
+		border-right: 10px solid #50A162;
+		background-color: rgba(220,220,220,1);
+		right: 0;
+		position: fixed;
+	}
+/*containers gerais*/
+body section.container {
+	   background-color: rgba(220,220,220,1);
+	   z-index: -1;
+	   padding-left: 15px;
+	   border-radius: 4px;
+	}
+/*Seleção de cesta*/
+body section.basket-sell {
+	   background-color: rgba(220,220,220,1);
+	   z-index: -1;
+	   padding-left: 15px;
+	   border-radius: 4px;
+	}
+/*Texto*/
+h1 {
+		font-family: tahoma;
+		color: 00400E;
+	}
+p {
+		font-family: tahoma;
+		color: 00400E;
+	}
+/* Botões */
+button {
+		display: inline-block;
+		border-radius: 4px;
+		background-color: #50A162;
+		border: none;
+		color: #ffff;
+		text-align: center;
+		font-size: 20px;
+		padding: 7px;
+		left-padding: 3px;
+		right-padding: 3px;
+		transition: all 0.5s;
+		cursor: pointer;
+		margin: 3px;
+	}
+button:hover {
+		 background-color: #106022;
+		 color: #80C18E;
+}
+/*Menu-------------------------------------------------------------------------------*/
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+	top: 0;
+	left:0;
+	position: fixed;
+	width: 100%;
+}
+
+li {
+    float: left;
+}
+
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+	transition: all 0.5s;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: #50A162;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: fixed;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 2;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+	z-index: 2;
+}
+
+.dropdown-content a:hover {
+		background-color: #106022;
+		 color: #80C18E;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+	z-index: 2;
+}
