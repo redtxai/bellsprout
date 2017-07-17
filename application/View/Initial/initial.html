@@ -32,15 +32,33 @@
 
 <script>
 	function goHome() {
-	   $(".basket-selection").fadeIn("slow");
+	   document.getElementById("request-data").style.display = "block";
 	   $(".login").hide("fast");
 	   $(".item-selection").hide("fast");
-	   $(".login-request-answer").hide("fast");
+	   $(".basket-selection").show("slow");
+	   document.getElementById("login-data").style.display = "none";
+	   document.getElementById("aboutUs").style.display = "none";
+
 	}
 	function goUser() {
 	   $(".login-request-answer").fadeIn("slow");
 	   $(".login").fadeIn("slow");
 	   $(".basket-selection").hide("fast");
 	   $(".item-selection").hide("fast");
+	   document.getElementById("login-data").style.display = "block";
+	   document.getElementById("aboutUs").style.display = "none";
+	   document.getElementById("request-data").style.display = "none";
 	}
 </script>
+<script>
+	function goAboutUs(){
+		document.getElementById("aboutUs").style.display = "block";
+	   document.getElementById("request-data").style.display = "none";
+	   $(".basket-selection").fadeIn("hide");
+	   $(".login").hide("fast");
+	   $(".item-selection").hide("fast");
+	   document.getElementById("login-data").style.display = "none";
+	}
+</script>
+
+

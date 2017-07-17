@@ -11,6 +11,7 @@ body section.login {
 		background-color: rgba(220,220,220,1);
 		right: 0;
 		position: fixed;
+		display: none;
 	}
 /*containers gerais*/
 body section.container {
