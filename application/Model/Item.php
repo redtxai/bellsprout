@@ -13,6 +13,13 @@
 			$name = $this->getName();
 			$itemGroup = $this->getItemGroup();
 			$disabled = "";
+			$checked = "";
+			$data = Session::getInstance();
+			if ($data->__isset('selectedItems')) {
+				if (in_array($value, $data->__get('selectedItems'))) {
+					$checked = "checked";
+				}
+			}
 			if ($this->quantity == 0) {
 				$disabled = "disabled";
 				$itemLabel = "<label for='$value' class='label-item'><strike>$name</strike></label>";
@@ -25,7 +32,7 @@
 				$rules .= $restriction . "-";
 			}
 			$rules .= "'/>";
-			return $rules . "<input type='checkbox' id='$value' name='food' group='$itemGroup' value='$value' $disabled>"
+			return $rules . "<input type='checkbox' id='$value' name='food' group='$itemGroup' value='$value' $checked $disabled>"
 						  . $itemLabel;
 		}
 

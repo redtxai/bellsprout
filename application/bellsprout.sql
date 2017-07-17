@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 16-Jul-2017 às 18:35
+-- Generation Time: 17-Jul-2017 às 06:00
 -- Versão do servidor: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -107,7 +107,11 @@ INSERT INTO `item` (`id_item`, `name`, `unit_name`, `unit_weight`, `item_group`,
 (44, 'Mel', 'Pote(g)', 50, 'Outros', 100),
 (47, 'Item teste', 'g', 100, 'Outros', 123),
 (48, 'Item teste', 'g', 100, 'Outros', 123),
-(49, 'Soja transgÃªnica', 'Saco(kg)', 2, 'Outros', 12);
+(49, 'Soja transgÃªnica', 'Saco(kg)', 2, 'Outros', 12),
+(50, 'FeijÃ£o', 'Saco(kg)', 1, 'Outros', 199),
+(51, 'Arroz', 'Saco(kg)', 1, 'Outros', 122),
+(52, 'Milho', 'Saco(kg)', 1, 'Outros', 133),
+(53, 'ParmesÃ£o', 'g', 100, 'Queijos', 10);
 
 -- --------------------------------------------------------
 
@@ -204,7 +208,37 @@ INSERT INTO `rel_item_food_restriction` (`id_rel`, `food_restriction`, `id_item`
 (44, 'gluten', 48),
 (45, 'lactose', 48),
 (46, 'vegano', 48),
-(47, 'vegano', 49);
+(47, 'vegano', 49),
+(48, 'vegano', 50),
+(49, 'vegano', 51),
+(50, 'vegano', 52),
+(51, 'lactose', 53);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `request`
+--
+
+CREATE TABLE `request` (
+  `id_request` int(11) NOT NULL,
+  `user_name` varchar(40) NOT NULL,
+  `user_cpf` varchar(12) NOT NULL,
+  `user_address` varchar(300) NOT NULL,
+  `user_phone` varchar(12) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_items` varchar(200) NOT NULL,
+  `id_basket` int(11) NOT NULL,
+  `food_restriction` varchar(200) NOT NULL,
+  `status` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `request`
+--
+
+INSERT INTO `request` (`id_request`, `user_name`, `user_cpf`, `user_address`, `user_phone`, `id_user`, `id_items`, `id_basket`, `food_restriction`, `status`) VALUES
+(2, 'Administrador', '51580237355', 'Passagem Vinte e Oito de Agosto, 573, Quarenta Horas (Coqueiro)', '91999198631', 1, '31-42-41-32-7-8-52-14-2-27-28-', 1, 'lactose-', 'Requisitado');
 
 -- --------------------------------------------------------
 
@@ -282,6 +316,12 @@ ALTER TABLE `rel_item_food_restriction`
   ADD KEY `id_rel` (`id_rel`);
 
 --
+-- Indexes for table `request`
+--
+ALTER TABLE `request`
+  ADD PRIMARY KEY (`id_request`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -307,7 +347,7 @@ ALTER TABLE `basket`
 -- AUTO_INCREMENT for table `item`
 --
 ALTER TABLE `item`
-  MODIFY `id_item` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id_item` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 --
 -- AUTO_INCREMENT for table `rel_basket_item`
 --
@@ -317,7 +357,12 @@ ALTER TABLE `rel_basket_item`
 -- AUTO_INCREMENT for table `rel_item_food_restriction`
 --
 ALTER TABLE `rel_item_food_restriction`
-  MODIFY `id_rel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id_rel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+--
+-- AUTO_INCREMENT for table `request`
+--
+ALTER TABLE `request`
+  MODIFY `id_request` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `user`
 --

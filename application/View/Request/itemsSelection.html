@@ -25,12 +25,14 @@ $(function(){
 			$(".basket-selection").show()
 			$(".item-selection").hide()
 			var basket = $("input[name=basket]:checked").val()
-			var food = $('input[name="food"]:checked').val()
 			var food_restriction = $('.food_restriction').val()
+			var selectedFood = $('input[name="food"]:checkbox:checked').map(function() {
+				return this.value;
+			}).get();
 			$.post("index.php?obj=Request&mth=confirmationRequest", {
 				basket: basket,
 				food_restriction: food_restriction,
-				food: food
+				food: selectedFood
 			})
 			.done(function(data) {
 				$("#request-data").html(data)
@@ -52,6 +54,9 @@ $(function(){
 		for (let i in basketRulesCount) {
 			if (basketRules[i] < basketRulesCount[i]) {
 				alert('Na categoria ' + i + ', foi selecionado um número de produtos acima do permitido')
+				validate = false
+			} else if (basketRules[i] > basketRulesCount[i]) {
+				alert('Na categoria ' + i + ', foi selecionado um número de produtos abaixo do permitido')
 				validate = false
 			}
 		}

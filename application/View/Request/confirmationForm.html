@@ -1,10 +1,10 @@
 
 <section class="confirmation-data">
 	<h3>Confirmar dados para envio do pedido:</h3>
-	<p>Nome:&nbsp;<input type="text" name="cpf" value="{NAME}"/></p>
-	<p>CPF:&nbsp;<input type="text" name="cpf" value="{CPF}"/></p>
-	<p>Endereço:&nbsp;<input type="text" name="cpf" value="{ADDRESS}"/></p>
-	<p>Telefone:&nbsp;<input type="text" name="cpf" value="{PHONE}"/></p>
+	<p>Nome:&nbsp;<input type="text" name="confirmation-name" value="{NAME}"/></p>
+	<p>CPF:&nbsp;<input type="text" name="confirmation-cpf" value="{CPF}"/></p>
+	<p>Endereço:&nbsp;<input type="text" name="confirmation-address" value="{ADDRESS}"/></p>
+	<p>Telefone:&nbsp;<input type="text" name="confirmation-phone" value="{PHONE}"/></p>
 	<p><button class="confirmation-request-button">Confirmar</button>&nbsp;<button class="back-request-button">Voltar</button></p>
 </section>
 
@@ -13,6 +13,25 @@
 		$.post("index.php?obj=Request&mth=getBasketSelection")
 		.done(function(data) {
 			$("#request-data").html(data)
+			$(".item-next-button").prop('disabled', false)
+		})
+		.fail(function() {
+			alert( "error" )
+		})
+	})
+
+	$(".confirmation-request-button").click(function() {
+		var name = $("[name='confirmation-name']").val()
+		var cpf = $("[name='confirmation-cpf']").val()
+		var address = $("[name='confirmation-address']").val()
+		var phone = $("[name='confirmation-phone']").val()
+		$.post("index.php?obj=Request&mth=saveRequest", {
+			name: name,
+			cpf: cpf,
+			address: address,
+			phone: phone})
+		.done(function(data) {
+			alert(data)
 		})
 		.fail(function() {
 			alert( "error" )
