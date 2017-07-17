@@ -10,18 +10,16 @@
 
 		public function __construct($data = null) {
 			$this->LoginView = new LoginView();
-			if(!empty($_POST['login']) && !empty($_POST['password'])) {
-				$this->tryLogin($_POST['password'], md5($_POST['password']));
-				$this->loginFeature = $this->LoginView->get();
-			} elseif($data != null && (!empty($data->user) && !empty($data->password))) {
+			if ($data != null && (!empty($data->user) && !empty($data->password))) {
 				$this->tryLogin($data->user, $data->password);
-				$this->loginFeature = $this->LoginView->get();
-			} elseif(isset($_POST) || empty($_POST)) {
-				$this->LoginView->notLogged();
-				$this->logout();
 			} else {
-				$this->LoginView->errorLoginEmpty();
-				$this->logout();
+				if(!empty($_POST['login']) && !empty($_POST['password'])) {
+					$this->tryLogin($_POST['password'], md5($_POST['password']));
+				} elseif (!empty($_POST)) {
+					$this->LoginView->errorLoginEmpty();
+				} else {
+					$this->LoginView->notLogged();
+				}
 			}
 		}
 
@@ -32,7 +30,6 @@
 				$idUser = $this->LoginData->getIdUser();
 				if ($idUser == 0) {
 					$this->LoginView->errorloginWrong();
-					$this->logout();
 				} else {
 					$result = $this->LoginData->loadUserDataModel();
 					$UserDataModel = new UserDataModel();
@@ -48,7 +45,9 @@
 					$data->password = $tryPassword;
 				}
 			} else {
-				$this->logout();
+				$data = Session::getInstance();
+				$data->destroy();
+				$this->LoginView->notLogged();
 			}
 			$this->LoginData->destroy();
 		}
@@ -56,6 +55,8 @@
 		public function logout() {
 			$data = Session::getInstance();
 			$data->destroy();
+			$this->LoginView->notLogged();
+			return $this->show();
 		}
 		
 		public function show() {

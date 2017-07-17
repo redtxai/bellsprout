@@ -1,19 +1,18 @@
 
 <section class="login-data">
-		<legend>Usuário</legend>
-		<p>Bem vindo <strong>{NAME}</strong></p>
-		<p>CPF:&nbsp;{CPF}</p>
-		<p>Endereço:&nbsp;{ADDRESS}</p>
-		<p>Telefone:&nbsp;{PHONE}</p>
-		<p><button class="logout-button">Sair</button></p>
+	<legend>Usuário</legend>
+	<p>Bem vindo <strong>{NAME}</strong></p>
+	<p>CPF:&nbsp;{CPF}</p>
+	<p>Endereço:&nbsp;{ADDRESS}</p>
+	<p>Telefone:&nbsp;{PHONE}</p>
+	<p><button class="logout-button">Sair</button></p>
 </section>
 <script>
 $(function(){
 	$(".logout-button").click(function() {
 		$.post("index.php?obj=Login&mth=logout")
 		.done(function(data) {
-			$(".login-request-answer").hide()
-			$(".login").fadeIn("slow")
+			$("#login-data").html(data)
 		})
 	})
 });

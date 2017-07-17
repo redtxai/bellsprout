@@ -9,8 +9,10 @@
 <script>
 $(function(){
 	$(".error-login-button").click(function() {
-		$(".login-request-answer").hide()
-		$(".login").fadeIn("slow")
+		$.post("index.php?obj=Login&mth=logout")
+		.done(function(data) {
+			$("#login-data").html(data)
+		})
 	})
 });
 </script>

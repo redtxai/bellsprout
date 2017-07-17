@@ -3,6 +3,7 @@
 		<meta charset="UTF-8">
 		<script src="View/js/jquery-3.2.1.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="styles\style_general.css">
+		<link rel="stylesheet" type="text/css" href="styles/style_notLogged.css">
 	</head>
 	<body>
 	 
@@ -20,8 +21,10 @@
 		<li style="float:right" onclick="goUser()"><a href="#user">Usuário</a></li>
 		</ul>
 
-		<section class="container">
+		<section id="login-data" class="container">
 			{LOGIN}
+		</section>
+		<section class="container">
 			{BASKET_SELECTION}
 		</section>
 	</body>
