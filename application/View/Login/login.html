@@ -11,13 +11,21 @@
 $(function(){
 	$(".item-next-button").prop('disabled', false);
 	$(".logout-button").click(function() {
-		$.post("index.php?obj=Login&mth=logout")
+	   $.post("index.php?obj=Login&mth=logout")
+	   document.getElementById("request-data").style.display = "block";
+	   $(".login").hide("fast");
+	   $(".item-selection").hide("fast");
+	   $(".basket-selection").show("slow");
+	   document.getElementById("login-data").style.display = "none";
+	   document.getElementById("aboutUs").style.display = "none";
+	   document.getElementById("homes").style.display = "none";
 		.done(function(data) {
 			$("#login-data").html(data)
 		})
 	})
 });
 </script>
+
 {FORM_NEW_USER}
 {FORM_NEW_ITEM}
 {REQUEST_LIST}

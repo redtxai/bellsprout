@@ -6,6 +6,10 @@ body section.login p.nome {
 	background: -o-linear-gradient(right,  rgba(0,0,0,0) , #50A162,  rgba(0,0,0,0) 60%); /* For Opera 11.1 to 12.0 */
 	background: -moz-linear-gradient(right,  rgba(0,0,0,0) , #50A162,  rgba(0,0,0,0) 60% ); /* For Firefox 3.6 to 15 */
 	background: linear-gradient(to right,  rgba(0,0,0,0) , #50A162,  rgba(0,0,0,0) 60%); /* Standard syntax */
+	background-image: url("images/login/nome.png");
+	background-repeat: no-repeat;
+	color: rgba(250,250,250,1);
+	text-shadow: 2px 2px 5px #00400E;
 }
 body section.login p.senha {
 	border-radius: 6px;
@@ -15,4 +19,8 @@ body section.login p.senha {
 	background: -o-linear-gradient(right,  rgba(0,0,0,0) , #50A162,  rgba(0,0,0,0) 60%); /* For Opera 11.1 to 12.0 */
 	background: -moz-linear-gradient(right,  rgba(0,0,0,0) , #50A162,  rgba(0,0,0,0) 60% ); /* For Firefox 3.6 to 15 */
 	background: linear-gradient(to right,  rgba(0,0,0,0) , #50A162,  rgba(0,0,0,0) 60%); /* Standard syntax */
+	background-image: url("images/login/senha.png");
+	background-repeat: no-repeat;
+	color: rgba(250,250,250,1);
+	text-shadow: 1px 1px 5px #00400E;
 }

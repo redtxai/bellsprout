@@ -3,7 +3,6 @@
 		<meta charset="UTF-8">
 		<script src="View/js/jquery-3.2.1.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="styles\style_general.css">
-		<link rel="stylesheet" type="text/css" href="styles/style_notLogged.css">
 	</head>
 	<body>
 	 
@@ -21,7 +20,7 @@
 				</div> 
 		!-->
 		</li>
-		<li style="float:right" onclick="goUser()"><a href="#user">Usuário</a></li>
+		<li style="float:right" onclick="goUser()"><a href="#user"> Usuário</a></li>
 		</ul>
 
 		<section id="login-data" class="container">
@@ -33,7 +32,7 @@
 		</section>
 		
 		<section id="aboutUs" class="sobreNos">
-			<object type="text/html" data="View\AboutUs\aboutUs.html"></object>
+			<object type="text/html" data="View\AboutUs\contato.html"></object>
 		</section>
 		<section id="homes" class="HomePage">
 			<object type="text/html" data="View\Home\home.html">
@@ -53,14 +52,14 @@
 	   document.getElementById("homes").style.display = "none";
 	}
 	function goUser() {
-	   $(".login-request-answer").fadeIn("slow");
 	   $(".login").fadeIn("slow");
-	   $(".basket-selection").hide("fast");
+	   $(".login-request-answer").fadeIn("slow");
+       $(".basket-selection").hide("fast");
 	   $(".item-selection").hide("fast");
 	   document.getElementById("login-data").style.display = "block";
 	   document.getElementById("aboutUs").style.display = "none";
 	   document.getElementById("request-data").style.display = "none";
-	   document.getElementById("homes").style.display = "none";
+	   document.getElementById("homes").style.display = "none"; 
 	}
 </script>
 <script>
@@ -74,14 +73,13 @@
 	   document.getElementById("homes").style.display = "none"
 	}
 		function goHomePage(){
-			   document.getElementById("homes").style.display = "block"
-
-	   document.getElementById("aboutUs").style.display = "none";
-	   document.getElementById("request-data").style.display = "none";
-	   $(".basket-selection").fadeIn("hide");
-	   $(".login").hide("fast");
-	   $(".item-selection").hide("fast");
-	   document.getElementById("login-data").style.display = "none";
+			document.getElementById("homes").style.display = "block"
+			document.getElementById("aboutUs").style.display = "none";
+			document.getElementById("request-data").style.display = "none";
+			$(".basket-selection").fadeIn("hide");
+			$(".login").hide("fast");
+			$(".item-selection").hide("fast");
+			document.getElementById("login-data").style.display = "none";
 	}
 </script>
 

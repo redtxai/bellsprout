@@ -1,24 +1,31 @@
+/*fonte extra para o site */
+@font-face{
+	font-family: "icons";
+	src: url("fonts/fontawesome-webfont.ttf");
+}
 /*Fundo*/
 body {
 		border-top: 50px solid #50A162;
 		background-color: #50A162;
 		border-right: 10px solid #50A162;
+		transition: all 0.5s;
 	}
 /*página do about us*/
 body section.sobreNos {
 		display: none;
+		transition: all 0.5s;
 }
+
 body section.HomePage {
 		display: block;
+		transition: all 0.5s;
 }
 /*Caixa de login*/
 body section.login {
 		border-radius: 4px;
-		border-right: 10px solid #50A162;
 		background-color: rgba(220,220,220,1);
-		right: 0;
-		position: fixed;
 		display: none;
+		transition: all 0.5s;
 	}
 /*containers gerais*/
 body section.container {
@@ -27,6 +34,7 @@ body section.container {
 	   padding-left: 15px;
 	   border-radius: 4px;
 	   display: none;
+	   transition: all 0.5s;
 	}
 /*Seleção de cesta*/
 body section.basket-sell {
@@ -35,11 +43,11 @@ body section.basket-sell {
 	   padding-left: 15px;
 	   border-radius: 4px;
 	   display: none;
-
+	   transition: all 0.5s;
 	}
 /*Texto*/
 h1 {
-		font-family: tahoma;
+		font-family: Arial;
 		color: 00400E;
 	}
 p {
@@ -72,11 +80,15 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #cacaca;
+	border-bottom: 2px solid #999;
 	top: 0;
 	left:0;
 	position: fixed;
 	width: 100%;
+	font-size: 18pt;
+	font-family: icons;
+	opacity: 1;
 }
 
 li {
@@ -85,7 +97,7 @@ li {
 
 li a, .dropbtn {
     display: inline-block;
-    color: white;
+    color: #12511F;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
