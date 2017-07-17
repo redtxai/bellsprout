@@ -15,7 +15,10 @@ body section.sobreNos {
 		display: none;
 		transition: all 0.5s;
 }
-
+/*Linhas horizontais brancas */
+hr {
+	border: 1px solid white;
+}
 body section.HomePage {
 		display: block;
 		transition: all 0.5s;
@@ -23,13 +26,13 @@ body section.HomePage {
 /*Caixa de login*/
 body section.login {
 		border-radius: 4px;
-		background-color: rgba(220,220,220,1);
+		background-color: rgba(255,255,255,0.8);
 		display: none;
 		transition: all 0.5s;
 	}
 /*containers gerais*/
 body section.container {
-	   background-color: rgba(220,220,220,1);
+	   background-color: rgba(255,255,255,0.8);
 	   z-index: -1;
 	   padding-left: 15px;
 	   border-radius: 4px;
