@@ -30,20 +30,9 @@
 			cpf: cpf,
 			address: address,
 			phone: phone})
-			.done(function(data) {
-				alert(data)
-				$.post("index.php?obj=Request&mth=getBasketSelection")
-			.done(function(data) {
-				$("#request-data").html(data)
-				$(".item-next-button").prop('disabled', false)
-				$("fieldset input[id='restriction']").each(function () {
-					$(this).parent().show()
-					$('input[type="checkbox"][id="' + $(this).attr('name') + '"]').prop('checked', false);
-				})
-			})
-			.fail(function() {
-				alert( "error" )
-		})
+		.done(function(data) {
+			alert(data)
+			window.location.reload();
 		})
 		.fail(function() {
 			alert( "error" )

@@ -1,25 +1,59 @@
-<button id="listButton" onclick="showList()">Lista de Pedidos</button>
-<section id="list" style="border: 0px solid #000; display:none;" class="user-request-list-data">
+<button id="listButton">Lista de Pedidos</button>
+<section id="list" style="border: 0px solid #000; display: none;" class="user-request-list-data">
 	<hr style="border: 1px solid white;">
 	<h1 style="padding-top: 20px; font-size: 24px;">Lista de pedidos</h1>
-		<p><button onclick="hideList()">Voltar</button></p>
+		<p><button id="backListButton">Voltar</button></p>
+				<p>Digite um termo para pesquisar: <input type="text" class="request-search"> Selecione o filtro:
+				<select class="request-search-filter">
+					<option value="id-request">Número do pedido</option>
+					<option value="user-name-request">Nome</option>
+					<option value="user-cpf-request">CPF</option>
+					<option value="user-address-request">Endereço</option>
+					<option value="user-phone-request">Telefone</option>
+					<option value="basket-request">Cesta</option>
+					<option value="items-request">Produtos</option>
+					<option value="status-request">Status</option>
+				</select>
+				</p>
 				<fieldset style=" padding-left: 10px; padding-right 10px; padding-bottom: 20px; display: ruby-base; border: 0px solid rgba(0,0,0,0);">
 					<p>{REQUEST_LIST}</p>
 				</fieldset>
-		<p><button onclick="hideList()">Voltar</button></p>
+		<p><button id="backListButton">Voltar</button></p>
 </section>
 <script>
-		function showList(){
-			document.getElementById("list").style.display = "block"
-			document.getElementById("showItemButton").style.display = "none"
-			document.getElementById("showFormButton").style.display = "none"
-			document.getElementById("listButton").style.display = "none"
-	}
-			function hideList(){
-			document.getElementById("list").style.display = "none"
-			document.getElementById("showFormButton").style.display = "block"
-			document.getElementById("showItemButton").style.display = "block"
-			document.getElementById("listButton").style.display = "block"
+$(function() {
+	$(".request-search").on("change paste keyup", function() {
+		$(".user-request").each(function (index, element) {
+			
+			var span = $(element).find("span[class='" + $('.request-search-filter').val() + "']")
+			
+			if ($(span).html().indexOf($(".request-search").val()) != -1) {
+				$(element).show()
+			} else {
+				$(element).hide()
+			}
+		})
+	})
 
+	function showList(){
+		$("#list").show()
+		$("#showItemButton").hide()
+		$("#showFormButton").hide()
+		$("#listButton").hide()
 	}
+	function hideList(){
+		$("#list").hide()
+		$("#showFormButton").show()
+		$("#showItemButton").show()
+		$("#listButton").show()
+	}
+
+	$('#listButton').click(function() {
+		showList()
+	})
+
+	$('#backListButton').click(function() {
+		hideList()
+	})
+})
 </script>
