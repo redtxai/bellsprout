@@ -4,6 +4,10 @@ body {
 		background-color: #50A162;
 		border-right: 10px solid #50A162;
 	}
+/*página do about us*/
+body section.sobreNos {
+		display: none;
+}
 /*Caixa de login*/
 body section.login {
 		border-radius: 4px;
