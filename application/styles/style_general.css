@@ -8,6 +8,9 @@ body {
 body section.sobreNos {
 		display: none;
 }
+body section.HomePage {
+		display: block;
+}
 /*Caixa de login*/
 body section.login {
 		border-radius: 4px;
@@ -23,6 +26,7 @@ body section.container {
 	   z-index: -1;
 	   padding-left: 15px;
 	   border-radius: 4px;
+	   display: none;
 	}
 /*Seleção de cesta*/
 body section.basket-sell {
@@ -30,6 +34,8 @@ body section.basket-sell {
 	   z-index: -1;
 	   padding-left: 15px;
 	   border-radius: 4px;
+	   display: none;
+
 	}
 /*Texto*/
 h1 {

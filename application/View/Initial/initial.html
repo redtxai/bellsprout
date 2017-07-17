@@ -8,15 +8,18 @@
 	<body>
 	 
 	 <ul>
-		<li onclick="goHome()"><a href="#home">Inicial</a></li>
+		<li onclick="goHomePage()"><a href="#home">Inicial</a></li>
 		<li onclick="goAboutUs()"><a href="#news">Contato</a></li>
+		<li onclick="goHome()"><a href="#home">Produtos</a></li>
 		<li class="dropdown">
+		<!--	
 			<a href="javascript:void(0)" class="dropbtn">Selecionar</a>
 				<div class="dropdown-content">
 					<a href="#">Link 1</a>
 					<a href="#">Link 2</a>
 					<a href="#">Link 3</a>
-				</div>
+				</div> 
+		!-->
 		</li>
 		<li style="float:right" onclick="goUser()"><a href="#user">Usuário</a></li>
 		</ul>
@@ -24,12 +27,18 @@
 		<section id="login-data" class="container">
 			{LOGIN}
 		</section>
+		
 		<section id="request-data" class="container">
 			{BASKET_SELECTION}
 		</section>
+		
 		<section id="aboutUs" class="sobreNos">
-		<object type="text/js" data="View\AboutUs\aboutUs.html">
+			<object type="text/html" data="View\AboutUs\aboutUs.html"></object>
 		</section>
+		<section id="homes" class="HomePage">
+			<object type="text/html" data="View\Home\home.html">
+		</section>
+
 	</body>
 </html>
 
@@ -41,7 +50,7 @@
 	   $(".basket-selection").show("slow");
 	   document.getElementById("login-data").style.display = "none";
 	   document.getElementById("aboutUs").style.display = "none";
-
+	   document.getElementById("homes").style.display = "none";
 	}
 	function goUser() {
 	   $(".login-request-answer").fadeIn("slow");
@@ -51,11 +60,23 @@
 	   document.getElementById("login-data").style.display = "block";
 	   document.getElementById("aboutUs").style.display = "none";
 	   document.getElementById("request-data").style.display = "none";
+	   document.getElementById("homes").style.display = "none";
 	}
 </script>
 <script>
 	function goAboutUs(){
 		document.getElementById("aboutUs").style.display = "block";
+	   document.getElementById("request-data").style.display = "none";
+	   $(".basket-selection").fadeIn("hide");
+	   $(".login").hide("fast");
+	   $(".item-selection").hide("fast");
+	   document.getElementById("login-data").style.display = "none";
+	   document.getElementById("homes").style.display = "none"
+	}
+		function goHomePage(){
+			   document.getElementById("homes").style.display = "block"
+
+	   document.getElementById("aboutUs").style.display = "none";
 	   document.getElementById("request-data").style.display = "none";
 	   $(".basket-selection").fadeIn("hide");
 	   $(".login").hide("fast");
