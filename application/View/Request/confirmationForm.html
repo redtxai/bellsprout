@@ -1,0 +1,21 @@
+
+<section class="confirmation-data">
+	<h3>Confirmar dados para envio do pedido:</h3>
+	<p>Nome:&nbsp;<input type="text" name="cpf" value="{NAME}"/></p>
+	<p>CPF:&nbsp;<input type="text" name="cpf" value="{CPF}"/></p>
+	<p>Endereço:&nbsp;<input type="text" name="cpf" value="{ADDRESS}"/></p>
+	<p>Telefone:&nbsp;<input type="text" name="cpf" value="{PHONE}"/></p>
+	<p><button class="confirmation-request-button">Confirmar</button>&nbsp;<button class="back-request-button">Voltar</button></p>
+</section>
+
+<script>
+	$(".back-request-button").click(function() {
+		$.post("index.php?obj=Request&mth=getBasketSelection")
+		.done(function(data) {
+			$("#request-data").html(data)
+		})
+		.fail(function() {
+			alert( "error" )
+		})
+	})
+</script>

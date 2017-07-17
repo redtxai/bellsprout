@@ -4,6 +4,7 @@
 	include("Data/ItemData.php");
 	include("Model/Basket.php");
 	include("Model/Item.php");
+	include_once("Model/UserDataModel.php");
 
 	class RequestController {
 		private $RequestView;
@@ -26,7 +27,14 @@
 		}
 
 		public function confirmationRequest() {
-			
+			$data = Session::getInstance();
+			$UserData = new UserDataModel();
+			$UserData->setIdUser($data->idUser);
+			$UserData->setName($data->name);
+			$UserData->setCpf($data->cpf);
+			$UserData->setAddress($data->address);
+			$UserData->setPhone($data->phone);
+			return $this->RequestView->getConfirmationForm($UserData);
 		}
 	}
 ?>

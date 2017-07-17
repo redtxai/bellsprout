@@ -9,6 +9,7 @@
 </section>
 <script>
 $(function(){
+	$(".item-next-button").prop('disabled', false);
 	$(".logout-button").click(function() {
 		$.post("index.php?obj=Login&mth=logout")
 		.done(function(data) {

@@ -33,7 +33,7 @@ $(function(){
 				food: food
 			})
 			.done(function(data) {
-				alert(data)
+				$("#request-data").html(data)
 			})
 			.fail(function() {
 				alert( "error" )

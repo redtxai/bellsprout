@@ -43,6 +43,11 @@
 					$data = Session::getInstance();
 					$data->user = $tryLogin;
 					$data->password = $tryPassword;
+					$data->idUser = $idUser;
+					$data->name = $UserDataModel->getName();
+					$data->cpf = $UserDataModel->getCpf();
+					$data->address = $UserDataModel->getAddress();
+					$data->phone = $UserDataModel->getPhone();
 				}
 			} else {
 				$data = Session::getInstance();

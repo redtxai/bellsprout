@@ -15,7 +15,6 @@
 			$.post("index.php?obj=Login", { login: login, password: password })
 			.done(function(data) {
 				$("#login-data").html(data)
-				$(".item-next-button").prop('disabled', false);
 			})
 			.fail(function() {
 				alert( "error" )
