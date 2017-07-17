@@ -41,6 +41,7 @@
 				$fileContent = str_replace("{USER_PHONE}", $request->getUserPhone(), $fileContent);
 				$fileContent = str_replace("{BASKET}", $request->getSelectedBasket(), $fileContent);
 				$fileContent = str_replace("{ITEMS}", implode($request->getSelectedItems(), ","), $fileContent);
+				$fileContent = str_replace("{STATUS}", $request->getStatus(), $fileContent);
 				$requestList .= $fileContent . "<hr/>";
 			}
 			$fileContent = file_get_contents("Request/userRequestList.html", FILE_USE_INCLUDE_PATH);
