@@ -1,8 +1,5 @@
-<html>
-<head>
-		<link rel="stylesheet" type="text/css" href="styles\style_notLogged.css">
-</head>
-</html>
+<link rel="stylesheet" type="text/css" href="styles/style_notLogged.css">
+
 <section class="login">
 		<h1>Logar</h1>
 		<p class="nome">Nome de usuário: <input type="text" name="login" placeholder="Username"></p>
@@ -11,3 +8,22 @@
 </section>
 <section class="login-request-answer" style="display:none;">
 </section>
+
+<script>
+	$(function(){
+		$(".login-button").click(function() {
+			var login = $("[name='login']").val()
+			var password = $("[name='password']").val()
+			$.post("index.php?obj=Login", { login: login, password: password })
+			.done(function(data) {
+				$(".login").hide()
+				$(".login-request-answer").html(data)
+				$(".login-request-answer").fadeIn()
+				$(".item-next-button").prop('disabled', false);
+			})
+			.fail(function() {
+				alert( "error" )
+			})
+		})
+	});
+</script>

@@ -18,8 +18,10 @@
 				$this->loginFeature = $this->LoginView->get();
 			} elseif(isset($_POST) || empty($_POST)) {
 				$this->LoginView->notLogged();
+				$this->logout();
 			} else {
 				$this->LoginView->errorLoginEmpty();
+				$this->logout();
 			}
 		}
 
@@ -30,6 +32,7 @@
 				$idUser = $this->LoginData->getIdUser();
 				if ($idUser == 0) {
 					$this->LoginView->errorloginWrong();
+					$this->logout();
 				} else {
 					$result = $this->LoginData->loadUserDataModel();
 					$UserDataModel = new UserDataModel();
@@ -44,12 +47,13 @@
 					$data->user = $tryLogin;
 					$data->password = $tryPassword;
 				}
+			} else {
+				$this->logout();
 			}
 			$this->LoginData->destroy();
 		}
 
 		public function logout() {
-			echo "ok";
 			$data = Session::getInstance();
 			$data->destroy();
 		}

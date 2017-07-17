@@ -19,35 +19,14 @@
 		</li>
 		<li style="float:right" onclick="goUser()"><a href="#user">Usuário</a></li>
 		</ul>
-	
+
 		<section class="container">
 			{LOGIN}
-		</section>
-		
-		<section class="container">
-				{BASKET_SELECTION}
-				
+			{BASKET_SELECTION}
 		</section>
 	</body>
 </html>
 
-<script>
-	$(function(){
-		$(".login-button").click(function() {
-			var login = $("[name='login']").val()
-			var password = $("[name='password']").val()
-			$.post("index.php?obj=Login", { login: login, password: password })
-			.done(function(data) {
-				$(".login").hide()
-				$(".login-request-answer").html(data)
-				$(".item-next-button").prop('disabled', false);
-			})
-			.fail(function() {
-				alert( "error" )
-			})
-		})
-	});
-</script>
 <script>
 	function goHome() {
 	   $(".basket-selection").fadeIn("slow");
