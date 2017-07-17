@@ -1,0 +1,1 @@
+as páginas : home e contato, têm seus CSS contidos na parte de view

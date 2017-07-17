@@ -9,6 +9,10 @@ body {
 		background-color: #50A162;
 		border-right: 10px solid #50A162;
 		transition: all 0.5s;
+		background-image: url(images/logoColheitaUrbana2.png);
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-position: left bottom;
 	}
 /*página do about us*/
 body section.sobreNos {
