@@ -29,5 +29,23 @@
 			$fileContent = str_replace("{PHONE}", $User->getPhone(), $fileContent);
 			return $fileContent;
 		}
+
+		public function getRequestListHtml($requestArray) {
+			$requestList = "";
+			foreach($requestArray as $request) {
+				$fileContent = file_get_contents("Request/userRequest.html", FILE_USE_INCLUDE_PATH);
+				$fileContent = str_replace("{ID_REQUEST}", $request->getIdRequest(), $fileContent);
+				$fileContent = str_replace("{USER_NAME}", $request->getUserName(), $fileContent);
+				$fileContent = str_replace("{USER_CPF}", $request->getUserCpf(), $fileContent);
+				$fileContent = str_replace("{USER_ADDRESS}", $request->getUserAddress(), $fileContent);
+				$fileContent = str_replace("{USER_PHONE}", $request->getUserPhone(), $fileContent);
+				$fileContent = str_replace("{BASKET}", $request->getSelectedBasket(), $fileContent);
+				$fileContent = str_replace("{ITEMS}", implode($request->getSelectedItems(), ","), $fileContent);
+				$requestList .= $fileContent . "<hr/>";
+			}
+			$fileContent = file_get_contents("Request/userRequestList.html", FILE_USE_INCLUDE_PATH);
+			$fileContent = str_replace("{REQUEST_LIST}", $requestList, $fileContent);
+			return $fileContent;
+		}
 	}
 ?>

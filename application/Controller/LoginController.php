@@ -3,6 +3,8 @@
 	include("View/LoginView.php");
 	include("Data/LoginData.php");
 	include("Model/UserDataModel.php");
+	include_once("Data/RequestData.php");
+	include_once("View/RequestView.php");
 
 	class LoginController {
 		private $LoginView;
@@ -38,8 +40,11 @@
 					}
 					$UserDataModel->setUserModelByDatabaseResult($result);
 					$UserDataModel->setIdUser($idUser);
+					$RequestView = new RequestView();
+					$RequestData = new RequestData();
+					$this->LoginView->setRequestListHtml($RequestView->getRequestListHtml($RequestData->getRequestArray($idUser)));
 					$this->LoginView->logged($UserDataModel);
-					
+
 					$data = Session::getInstance();
 					$data->user = $tryLogin;
 					$data->password = $tryPassword;

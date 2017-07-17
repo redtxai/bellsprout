@@ -1,8 +1,8 @@
 <?php
-	include("View/RequestView.php");
-	include("Data/RequestData.php");
+	include_once("View/RequestView.php");
+	include_once("Data/RequestData.php");
 	include("Data/ItemData.php");
-	include("Model/Request.php");
+	include_once("Model/Request.php");
 	include("Model/Basket.php");
 	include("Model/Item.php");
 	include_once("Model/UserDataModel.php");

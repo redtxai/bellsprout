@@ -3,12 +3,15 @@
 		private $handle;
 		private $fileContent;
 		private $UserData;
+		private $requestListHtml;
 
 		public function __construct() {}
 
 		public function logged($UserData) {
 			$this->fileContent = file_get_contents("Login/login.html", FILE_USE_INCLUDE_PATH);
 			$this->setUserData($UserData);
+			
+			$this->fileContent = str_replace("{REQUEST_LIST}", $this->requestListHtml, $this->fileContent);
 			if ($UserData->isAdmin()) {
 				$this->fileContent = str_replace("{FORM_NEW_USER}", $this->getFormNewUser(), $this->fileContent);
 				$ItemView = new ItemView();
@@ -33,6 +36,10 @@
 
 		public function errorloginWrong() {
 			$this->fileContent = file_get_contents("Login/errorloginWrong.html", FILE_USE_INCLUDE_PATH);
+		}
+
+		public function setRequestListHtml($requestListHtml) {
+			$this->requestListHtml = $requestListHtml;
 		}
 
 		private function setUserData($UserData) {

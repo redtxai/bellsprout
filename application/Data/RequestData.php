@@ -1,4 +1,6 @@
 <?php
+	include_once("Model/Request.php");
+
 	class RequestData extends Data {
 		
 		public function __construct() {
@@ -41,8 +43,8 @@
 			$userAddress = $Request->getUserAddress();
 			$userPhone = $Request->getUserPhone();
 			$basket = $Request->getSelectedBasket();
-			$items = $this->getArrayToString($Request->getSelectedItems());
-			$foodRestriction = $this->getArrayToString($Request->getFoodRestriction());
+			$items = implode($Request->getSelectedItems(), ",");
+			$foodRestriction = implode($Request->getFoodRestriction(), ",");
 			$status = $Request->getStatus();
 
 			$sql = "INSERT INTO request(user_name, user_cpf, user_address, user_phone, id_user, id_items, id_basket, food_restriction, status) ";
@@ -50,19 +52,38 @@
 			$rs = $this->conn->query($sql);
 			if(!is_null($rs)) {
 				$this->returnAnswer = "Pedido realizado com sucesso!";
-				$this->register = false;
+				$this->register = true;
 			} else {
 				$this->returnAnswer = "Ocorreu um erro!";
 				$this->register = false;
 			}
 		}
 
-		private function getArrayToString($array) {
-			$string = "";
-			foreach($array as $value) {
-				$string .= $value . "-";
+		public function getRequestArray($idUser) {
+			$requestArray = Array();
+			$sql = "SELECT * FROM request WHERE id_user = $idUser";
+			$rs = $this->conn->query($sql);
+			if(!is_null($rs)) {
+				$this->register = false;
+				foreach($rs as $row) {
+					$Request = new Request();
+					$Request->setIdRequest($row['id_request']);
+					$Request->setIdUser($row['id_user']);
+					$Request->setUserName($row['user_name']);
+					$Request->setUserCpf($row['user_cpf']);
+					$Request->setUserAddress($row['user_address']);
+					$Request->setUserPhone($row['user_phone']);
+					$Request->setSelectedBasket($row['id_basket']);
+					$Request->setSelectedItems(explode(",", $row['id_items']));
+					$Request->setFoodRestriction(explode(",", $row['food_restriction']));
+					$Request->setStatus($row['status']);
+					array_push($requestArray, $Request);
+				}
+			} else {
+				$this->returnAnswer = "Ocorreu um erro!";
+				$this->register = false;
 			}
-			return $string;
+			return $requestArray;
 		}
 	}
 ?>
