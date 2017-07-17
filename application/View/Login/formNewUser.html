@@ -1,7 +1,9 @@
-
+<button id="showFormButton" onclick="showNewForm()">Cadastrar Usuário</button>
 <section class="register-user">
-	<fieldset>
-		<legend>Cadastro de Novo Usuário</legend>
+	
+	<fieldset id="newForm" style="border: 0px solid #000; display:none;">
+		<hr>
+		<h1 style="padding-top: 20px; font-size: 24px;">Cadastro de Novo Usuário</h1>
 		<p><input type="text" name="login" placeholder="Nome de usuário"></p>
 		<p><input type="password" name="password" placeholder="Password"></p>
 		<p>
@@ -12,8 +14,9 @@
 		<p><input type="text" name="cpf" placeholder="CPF"></p>
 		<p><input type="text" name="address" placeholder="Endereço"></p>
 		<p><input type="text" name="phone" placeholder="Telefone"></p>
-		<p><button class="register-button">Cadastrar</button></p>
+		<p><button onclick="hideNewForm()">Voltar</button><button class="register-button">Cadastrar</button></p>
 		<p class="register-message"></p>
+
 	</fieldset>
 </section>
 
@@ -44,4 +47,18 @@ $(function(){
 		})
 	})
 });
+</script>
+<script>
+		function showNewForm(){
+			document.getElementById("newForm").style.display = "block"
+			document.getElementById("showFormButton").style.display = "none"
+			document.getElementById("showItemButton").style.display = "none"
+			document.getElementById("listButton").style.display = "none"
+	}
+			function hideNewForm(){
+			document.getElementById("newForm").style.display = "none"
+			document.getElementById("showFormButton").style.display = "block"
+			document.getElementById("showItemButton").style.display = "block"
+			document.getElementById("listButton").style.display = "block"
+	}
 </script>

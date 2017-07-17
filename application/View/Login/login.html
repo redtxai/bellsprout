@@ -1,31 +1,32 @@
 
-<section class="login-data">
-	<legend>Usuário</legend>
-	<p>Bem vindo <strong>{NAME}</strong></p>
+<section style="padding-left: 10px;" class="login-data">
+	<h1 style="padding-top: 20px;">Usuário</h1>
+	<p>Bem vindo: <strong>{NAME}</strong></p>
 	<p>CPF:&nbsp;{CPF}</p>
 	<p>Endereço:&nbsp;{ADDRESS}</p>
 	<p>Telefone:&nbsp;{PHONE}</p>
-	<p><button class="logout-button">Sair</button></p>
+	<p><button onclick="goHomePage()" class="logout-button">Sair</button></p>
 </section>
 <script>
 $(function(){
 	$(".item-next-button").prop('disabled', false);
 	$(".logout-button").click(function() {
-	   $.post("index.php?obj=Login&mth=logout")
-	   document.getElementById("request-data").style.display = "block";
-	   $(".login").hide("fast");
-	   $(".item-selection").hide("fast");
-	   $(".basket-selection").show("slow");
-	   document.getElementById("login-data").style.display = "none";
-	   document.getElementById("aboutUs").style.display = "none";
-	   document.getElementById("homes").style.display = "none";
+		$.post("index.php?obj=Login&mth=logout")
 		.done(function(data) {
 			$("#login-data").html(data)
 		})
 	})
 });
 </script>
-
-{FORM_NEW_USER}
-{FORM_NEW_ITEM}
-{REQUEST_LIST}
+<script>
+		function goHomePage(){
+			document.getElementById("homes").style.display = "block"
+			document.getElementById("aboutUs").style.display = "none";
+			document.getElementById("request-data").style.display = "none";
+			$(".basket-selection").fadeIn("hide");
+			$(".login").hide("fast");
+			$(".item-selection").hide("fast");
+			document.getElementById("login-data").style.display = "none";
+	}
+</script>
+<section style="padding-bottom: 20px; display: flex;">{FORM_NEW_USER}{FORM_NEW_ITEM}{REQUEST_LIST}</section>

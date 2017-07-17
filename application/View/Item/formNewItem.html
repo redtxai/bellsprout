@@ -1,6 +1,8 @@
+<button id="showItemButton" onclick="showNewItem()">Cadastrar Item</button>
 <section class="register-item">
-	<fieldset>
-		<legend>Cadastro de Novo Item</legend>
+	<fieldset id="newItemForm" style="border: 0px solid #000; display:none;">
+	<hr>
+		<h1 style="padding-top: 20px; font-size: 24px;">Cadastro de Novo Item</h1>
 		<p><input type="text" name="itemName" placeholder="Nome do item"></p>
 		<p><input type="text" name="unitName" placeholder="Nome da unidade"></p>
 		<p><input type="text" name="unitWeight" placeholder="Peso da unidade"></p>
@@ -24,7 +26,7 @@
 			</select>
 		</p>
 		<p><input type="text" name="quantity" placeholder="Quantidade em estoque"></p>
-		<p><button class="register-item-button">Cadastrar</button></p>
+		<p><button onclick="hideNewItem()">Voltar</button><button class="register-item-button">Cadastrar</button></p>
 		<p class="register-item-message"></p>
 	</fieldset>
 </section>
@@ -58,4 +60,18 @@ $(function() {
 		})
 	})
 });
+</script>
+<script>
+		function showNewItem(){
+			document.getElementById("newItemForm").style.display = "block"
+			document.getElementById("showItemButton").style.display = "none"
+			document.getElementById("showFormButton").style.display = "none"
+			document.getElementById("listButton").style.display = "none"
+	}
+			function hideNewItem(){
+			document.getElementById("newItemForm").style.display = "none"
+			document.getElementById("showItemButton").style.display = "block"
+			document.getElementById("showFormButton").style.display = "block"
+			document.getElementById("listButton").style.display = "block"
+	}
 </script>
