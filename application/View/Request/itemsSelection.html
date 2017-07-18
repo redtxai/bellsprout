@@ -13,7 +13,7 @@
 $(function(){
 	$(".items-filter").on("change paste keyup", function() {
 		$(".label-item").each(function (index, element) {
-			if ($(element).html().indexOf($(".items-filter").val()) != -1) {
+			if ($(element).html().toLowerCase().indexOf($(".items-filter").val().toLowerCase()) != -1) {
 				$(element).parent().fadeIn("fast")
 			} else {
 				$(element).parent().fadeOut("fast")
