@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 17-Jul-2017 às 06:00
+-- Generation Time: 18-Jul-2017 às 04:19
 -- Versão do servidor: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -238,7 +238,9 @@ CREATE TABLE `request` (
 --
 
 INSERT INTO `request` (`id_request`, `user_name`, `user_cpf`, `user_address`, `user_phone`, `id_user`, `id_items`, `id_basket`, `food_restriction`, `status`) VALUES
-(2, 'Administrador', '51580237355', 'Passagem Vinte e Oito de Agosto, 573, Quarenta Horas (Coqueiro)', '91999198631', 1, '31-42-41-32-7-8-52-14-2-27-28-', 1, 'lactose-', 'Requisitado');
+(2, 'Administrador', '51580237355', 'Passagem Vinte e Oito de Agosto, 573, Quarenta Horas (Coqueiro)', '91999198631', 1, '31-42-41-32-7-8-52-14-2-27-28-', 1, 'lactose-', 'Requisitado'),
+(3, 'Joaquim Hugo Henrique dos Santos', '66907321696', 'Rua JoÃ£o Francisco da Mota, 364, CatolÃ©', '83991697221', 2, '38-37-36-35-12-4-43-14-2-28-26-', 1, '', 'Requisitado'),
+(4, 'Txai Mostardeiro Potier', '24907341696', 'Rua Francisco de Souza, 342, Maiana', '91458763', 2, '31,42,32,39,7,9,50,13,2,26,30', 1, '', 'Requisitado');
 
 -- --------------------------------------------------------
 
@@ -260,7 +262,8 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id_user`, `username`, `password`, `permission`) VALUES
 (1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1),
 (2, 'user', 'ee11cbb19052e40b07aac0ca060c23ee', 0),
-(3, 'andreo', 'd20a22106c542f82e4b81b14beb53386', 1);
+(3, 'andreo', 'd20a22106c542f82e4b81b14beb53386', 1),
+(4, 'asdqw', '26b5542258bc1994b7423fb175caf101', 0);
 
 -- --------------------------------------------------------
 
@@ -282,9 +285,10 @@ CREATE TABLE `user_data` (
 --
 
 INSERT INTO `user_data` (`id_user_data`, `name`, `cpf`, `address`, `phone`, `id_user`) VALUES
-(1, 'Administrador', '51580237355', 'Passagem Vinte e Oito de Agosto, 573, Quarenta Horas (Coqueiro)', '91999198631', 1),
-(2, 'Joaquim Hugo Henrique dos Santos', '66907321696', 'Rua JoÃ£o Francisco da Mota, 364, CatolÃ©', '83991697221', 2),
-(3, 'Andreo Dias Barros', '03655471185', 'Av Ipiranga, 267, Jardim BotÃ¢nico', '51894752658', 3);
+(1, 'Administrador', '51580237355', 'Passagem Trinta e Oito de Agosto, 573, Quarenta Horas (Coqueiro)', '91999198631', 1),
+(2, 'Joaquim Hugo Henrique dos Santos', '66907321696', 'Rua JoÃ£o Francisco da Mota, 354, CatolÃ©', '83991697221', 2),
+(3, 'Andreo Dias Barros', '03655471185', 'Av Ipiranga, 267, Jardim BotÃ¢nico', '51894752658', 3),
+(4, 'Asdqw Asdqw Asdqw', '02833452218', 'Rua Asdqw, 29, Asdqw -Asdqw - AS', '51984567785', 4);
 
 --
 -- Indexes for dumped tables
@@ -362,17 +366,17 @@ ALTER TABLE `rel_item_food_restriction`
 -- AUTO_INCREMENT for table `request`
 --
 ALTER TABLE `request`
-  MODIFY `id_request` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_request` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `user_data`
 --
 ALTER TABLE `user_data`
-  MODIFY `id_user_data` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_user_data` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
