@@ -6,72 +6,91 @@
     <meta charset="utf-8" />
   		<link rel="stylesheet" type="text/css" href="css\style_contact.css">
 
-   <h1>Contate-nos</h1>
+   <h1 style="font-family: Arial; text-size: 35pt; padding-top:20px; color: white;">Contate-nos</h1>
   
 </head>
 <body>
+<section class="contato">
     <form name="meu_form">
 
 	<!-- informações do site -->
 	<div>
 	
-        <h2 class="title">Contato Para Colheita urbana</h2>
+        <h2 class="title" style="text-align: center;">Contato Para Colheita urbana</h2>
         
-        <h3 class="label">Telefones </h3>
-        <h4 class="txt">
-            0800-1234	 ( ligue de qualquer cidade )	<br>
-            (51)988543652 Whatsapp                      <br>
-			
-        </h4>
+		<p>&nbsp;</p>
+		
         
-        <h3 class="label">Comercial</h3>
-        <h4 class="txt">
-            
-          <!-- aqui teria o seguinte comando caso o site fosse comercial "<a href="endereço de email"> -->comercial@colheitaurbana.com.br</a>
-        </h4>
         
-        <h3 class="label">Relacionamento</h3>
-        <h4 class="txt">
-            
-           relacionamento@colheitaurbana.com.br</a>
-        </h4>
-        
-        <h3 class="label">Suporte</h3>
-        <h4 class="txt">
-            
-        suporte@colheitaurbana.com.br</a>
-        </h4>
+		<table cellspacing="0" cellpadding="5">
+		<tbody>
+			<tr>
+				<td style="width: 160.417px;"><h3 class="label">Telefones: </h3></td>
+				<td style="width: 386.717px;"><h4 class="txt">0800-4627212	 ( ligue de qualquer cidade )	<br>
+																					(51) 99843652 Whatsapp                      		<br> 
+				</td>
+				<td style="width: 146.467px;"> </td>
+			</tr>
+		</tbody>
+		</table>
+		<table style="height:100px"cellspacing="0" cellpadding-right="20">
+		<tbody>
+			<tr>
+				<td style="width: 300px;"><h3 class="label">E-mails: </h3></td>
+				<td style="width: 300px;"></td>
+				<td style="width: 300px;"></td>
+			</tr>
+		</tbody>
+		</table>
+		<table cellspacing="0" cellpadding-right="20">
+		<tbody>
+			<tr>
+				<td style="width: 50px;"></td>
+				<td style="width: 300px;"><h4 class="label">Comercial</h4></td>
+				<td style="width: 300px;"><h4 class="label">Relacionamento</h4></td>
+				<td style="width: 300px;"><h4 class="label">Suporte</h4></td>
+			</tr>
+			<tr>
+				<td style="width: 50px;"></td>
+				<td style="width: 300px;"><!-- aqui teria o seguinte comando caso o site fosse comercial "<a href="endereço de email"> -->comercial@colheitaurbana.com.br</a></td>
+				<td style="width: 300px;"> relacionamento@colheitaurbana.com.br</a></td>
+				<td style="width: 300px;">suporte@colheitaurbana.com.br</a></td>
+			</tr>
+		</tbody>
+		</table>
+		<p>&nbsp;</p>
         
       
         <h3 class="label">Redes Sociais </h3>
-        <h4 class="txt">Facebook: https://www.facebook.com/ColheitaUrbana <br>
+        <p class="txt">Facebook: https://www.facebook.com/ColheitaUrbana <br>
                         Twitter: https://twitter.com/ColheitaUrbana       <br>
 						Instagram: https://www.instagram.com/ColheitaUrbana/<br>
-						</a></h4>
+						</a></p>
 
 	<!-- parte para entrar em contato -->
        
-
+	<section >
         <p class="nome">
             <input type="text" id="nomeid" placeholder="Nome Completo" required="required" name="nome" />
             <label for="nome">Nome</label>
         </p>
         <p class="Telefone">
-            <input type="text" id="foneid" placeholder="(DD)9????????" name="Telefone" />
+            <input type="text" id="foneid" placeholder="(DD) x xxxxxxxx" name="Telefone" />
             <label for="fone">Telefone</label>
 
         </p>
-        <p>
-            <input type="email" id="emailid" placeholder="adalmir@gmail.com" name="email" />
+        <p >
+            <input type="email" id="emailid" placeholder="seuEmail@Provedor.com" name="email" />
             <label for="email">Email</label>
         </p>
         <p>
-            <textarea placeholder="Deixe aqui sua mensagem ou opniao">    </textarea>
+            <textarea style="height: 200px; width: 90%; margin-left: auto; margin-right: auto;" placeholder="Deixe aqui sua mensagem ou opniao">    </textarea>
         </p>
         <p class="submit">
             <input type="submit" onclick="Enviar();" value="Enviar" />
         </p>
- 
+	</section>
     </form>
+</section>
 </body>
 </html>

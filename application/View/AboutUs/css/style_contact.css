@@ -1,3 +1,38 @@
 body{
-	color: white;
+	color: rgba(5,100,5,1);
+	font-family: tahoma;
+}
+body section {
+	margin-left: auto;
+    margin-right: auto;
+	width: 70%;
+	weight: 50%;
+	margin-top: 34px;
+	background-color: rgba(255,255,255,0.85);
+	border-radius: 10px;
+	box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
+	padding-top: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 30px;
+}
+/* Botões */
+p.submit {
+		display: inline-block;
+		border-radius: 4px;
+		background-color: #50A162;
+		border: none;
+		color: #ffff;
+		text-align: center;
+		font-size: 20px;
+		padding: 7px;
+		left-padding: 3px;
+		right-padding: 3px;
+		transition: all 0.5s;
+		cursor: pointer;
+		margin: 3px;
+	}
+p.submit:hover {
+		 background-color: #106022;
+		 color: #80C18E;
 }
