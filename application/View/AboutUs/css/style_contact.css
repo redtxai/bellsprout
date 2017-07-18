@@ -17,7 +17,7 @@ body section {
 	padding-bottom: 30px;
 }
 /* Botões */
-p.submit {
+button {
 		display: inline-block;
 		border-radius: 4px;
 		background-color: #50A162;
@@ -32,7 +32,7 @@ p.submit {
 		cursor: pointer;
 		margin: 3px;
 	}
-p.submit:hover {
+button:hover {
 		 background-color: #106022;
 		 color: #80C18E;
 }
