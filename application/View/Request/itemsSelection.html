@@ -1,5 +1,6 @@
 <div class="item-selection">
 	<p style="padding: 10px;"><button class="item-previous-button">Anterior</button></p>
+	<p style="padding: 10px;">Pesquisar:<input type="text" class="items-filter"/></p>
 	<div style=" padding-left: 10px; padding-right 10px; padding-bottom: 20px; display: flex; border: 0px solid rgba(0,0,0,0);" class="item-list">
 		{ITEMS}
 	</div>
@@ -10,6 +11,16 @@
 
 <script>
 $(function(){
+	$(".items-filter").on("change paste keyup", function() {
+		$(".label-item").each(function (index, element) {
+			if ($(element).html().indexOf($(".items-filter").val()) != -1) {
+				$(element).parent().fadeIn("fast")
+			} else {
+				$(element).parent().fadeOut("fast")
+			}
+		})
+	})
+
 	$(".item-previous-button").click(function() {
 		$(".basket-selection").fadeIn("slow")
 		$("fieldset input[id='restriction']").each(function () {
