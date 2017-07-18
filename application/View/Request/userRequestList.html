@@ -2,7 +2,7 @@
 <section id="list" style="border: 0px solid #000; display: none;" class="user-request-list-data">
 	<hr style="border: 1px solid white;">
 	<h1 style="padding-top: 20px; font-size: 24px;">Lista de pedidos</h1>
-		<p><button id="backListButton">Voltar</button></p>
+		<p><button id="backListButton" class="backListButton">Voltar</button></p>
 				<p>Digite um termo para pesquisar: <input type="text" class="request-search"> Selecione o filtro:
 				<select class="request-search-filter">
 					<option value="id-request">Número do pedido</option>
@@ -18,7 +18,7 @@
 				<fieldset style=" padding-left: 10px; padding-right 10px; padding-bottom: 20px; display: ruby-base; border: 0px solid rgba(0,0,0,0);">
 					<p>{REQUEST_LIST}</p>
 				</fieldset>
-		<p><button id="backListButton">Voltar</button></p>
+		<p><button id="backListButton" class="backListButton">Voltar</button></p>
 </section>
 <script>
 $(function() {
@@ -27,32 +27,32 @@ $(function() {
 			
 			var span = $(element).find("span[class='" + $('.request-search-filter').val() + "']")
 			
-			if ($(span).html().indexOf($(".request-search").val()) != -1) {
-				$(element).show()
+			if ($(span).html().toLowerCase().indexOf($(".request-search").val().toLowerCase()) != -1) {
+				$(element).fadeIn("fast")
 			} else {
-				$(element).hide()
+				$(element).fadeOut("fast")
 			}
 		})
 	})
 
 	function showList(){
-		$("#list").show()
-		$("#showItemButton").hide()
-		$("#showFormButton").hide()
 		$("#listButton").hide()
+		$("#list").fadeIn("slow")
+		$("#showItemButton").fadeOut("slow")
+		$("#showFormButton").fadeOut("slow")
 	}
 	function hideList(){
 		$("#list").hide()
-		$("#showFormButton").show()
-		$("#showItemButton").show()
-		$("#listButton").show()
+		$("#listButton").fadeIn("slow")
+		$("#showFormButton").fadeIn("slow")
+		$("#showItemButton").fadeIn("slow")
 	}
 
 	$('#listButton').click(function() {
 		showList()
 	})
 
-	$('#backListButton').click(function() {
+	$('.backListButton').click(function() {
 		hideList()
 	})
 })
