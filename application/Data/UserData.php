@@ -24,7 +24,7 @@
 				$this->register = false;
 			}
 		}
-		
+
 		public function tryRegisterUserDataModel($UserDataModel) {
 			$name = $UserDataModel->getName();
 			$cpf = $UserDataModel->getCpf();
@@ -42,9 +42,27 @@
 				$this->register = false;
 			}
 		}
-		
+
 		public function getIdUser() {
 			return $this->idUser;
+		}
+
+		public function updateUser($User) {
+			$idUser = $User->getIdUserData();
+			$name = $User->getName();
+			$cpf = $User->getCpf();
+			$address = $User->getAddress();
+			$phone = $User->getPhone();
+
+			$sql = "UPDATE user_data SET name='$name', cpf='$cpf', address='$address', phone='$phone' WHERE id_user_data = $idUser;";
+			$result = $this->conn->query($sql);
+			if (!is_null($result)) {
+				$this->returnAnswer = "Usuário atualizado com sucesso!";
+				$this->register = true;
+			} else {
+				$this->returnAnswer = "Ocorreu um erro!";
+				$this->register = false;
+			}
 		}
 	}
 ?>

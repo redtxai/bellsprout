@@ -5,8 +5,19 @@
 	<p>CPF:&nbsp;{CPF}</p>
 	<p>Endereço:&nbsp;{ADDRESS}</p>
 	<p>Telefone:&nbsp;{PHONE}</p>
-	<p><button onclick="goHomePage()" class="logout-button">Sair</button></p>
+	<p><button class="edit-button">Editar</button><button onclick="goHomePage()" class="logout-button">Sair</button></p>
 </section>
+
+<section style="padding-left: 10px; display:none;" class="update-user-data">
+	<h1 style="padding-top: 20px;">Editar</h1>
+	<input type="hidden" name="edit_id_user" value="{ID_USER}"/>
+	<p>Nome: <input type="text" name="edit_name" value="{NAME}"/></p>
+	<p>CPF:&nbsp; <input type="text" name="edit_cpf" value="{CPF}"/></p>
+	<p>Endereço:&nbsp; <input type="text" name="edit_address" value="{ADDRESS}"/></p>
+	<p>Telefone:&nbsp; <input type="text" name="edit_phone" value="{PHONE}"/></p>
+	<p><button class="edit-user-button">Salvar</button><button class="cancel-edit-user-button">Voltar</button></p>
+</section>
+
 <script>
 $(function(){
 	$(".item-next-button").prop('disabled', false);
@@ -16,9 +27,41 @@ $(function(){
 			$("#login-data").html(data)
 		})
 	})
+
+	$(".edit-button").click(function() {
+		$('.login-data').hide();
+		$('.update-user-data').fadeIn("slow");
+	})
+
+	$(".cancel-edit-user-button").click(function() {
+		$('.update-user-data').hide();
+		$('.login-data').fadeIn("slow");
+	})
+
+	$('.edit-user-button').click(function() {
+		var id_user = $("[name='edit_id_user']").val()
+		var name = $("[name='edit_name']").val()
+		var cpf = $("[name='edit_cpf']").val()
+		var address = $("[name='edit_address']").val()
+		var phone = $("[name='edit_phone']").val()
+		var username = $("[name='edit_username']").val()
+		var password = $("[name='edit_password']").val()
+		$.post("index.php?obj=User&mth=update", {
+			id_user: id_user,
+			name: name,
+			cpf: cpf,
+			address: address,
+			phone: phone,
+			username: username,
+			password: password,
+		})
+		.done(function(data) {
+			alert(data)
+			window.location.reload();
+		})
+	})
 });
-</script>
-<script>
+
 		function goHomePage(){
 			document.getElementById("homes").style.display = "block"
 			document.getElementById("aboutUs").style.display = "none";

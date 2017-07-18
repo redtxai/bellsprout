@@ -43,6 +43,7 @@
 		}
 
 		private function setUserData($UserData) {
+			$this->fileContent = str_replace("{ID_USER}", $UserData->getIdUserData(), $this->fileContent);
 			$this->fileContent = str_replace("{NAME}", $UserData->getName(), $this->fileContent);
 			$this->fileContent = str_replace("{CPF}", $UserData->getCpf(), $this->fileContent);
 			$this->fileContent = str_replace("{ADDRESS}", $UserData->getAddress(), $this->fileContent);
